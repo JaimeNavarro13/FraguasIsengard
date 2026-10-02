@@ -4,16 +4,79 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context=".MainActivity">
 
-    <TextView
+    <EditText
+        android:id="@+id/editTextIdentificador"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:ems="10"
+        android:hint="Identificador del Uruk-hai"
+        android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/spinnerTipoUnidad"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="16dp"
+        android:entries="@array/tipos_unidad"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editTextIdentificador" />
+
+    <RadioGroup
+        android:id="@+id/radioGroupEquipamiento"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/spinnerTipoUnidad">
+
+        <RadioButton
+            android:id="@+id/radioButtonArmadura"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Armadura de hierro" />
+
+        <RadioButton
+            android:id="@+id/radioButtonEscudo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Escudo de Isengard" />
+
+    </RadioGroup>
+
+    <CheckBox
+        android:id="@+id/checkBoxAntorcha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        android:checked="false"
+        android:text="Llevar Antorcha de Polvorín"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroupEquipamiento"
+        tools:layout_editor_absoluteX="16dp" />
+
+    <ImageButton
+        android:id="@+id/imageButtonEnviar"
+        android:layout_width="61dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintTop_toBottomOf="@+id/checkBoxAntorcha"
+        app:srcCompat="@android:drawable/ic_menu_send"
+        tools:layout_editor_absoluteX="16dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
