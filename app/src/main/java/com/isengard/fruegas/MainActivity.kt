@@ -57,25 +57,25 @@ class MainActivity : AppCompatActivity() {
                 identificador.error = "El ejército no acepta soldados anónimos"
             } else {
                 identificador.error = null
+
+                val unidad = tipoUnidad.selectedItem.toString()
+
+                val equipo = when (equipamiento.checkedRadioButtonId) {
+                    R.id.radioButtonArmadura -> "Armadura de hierro"
+                    R.id.radioButtonEscudo -> "Escudo de Isengard"
+                    else -> "Sin equipamiento"
+                }
+
+                val llevaAntorcha = antorcha.isChecked
+
+                Log.d("FraguasIsengard", "ID: $idTropa, unidad: $unidad, equipo: $equipo, antorcha: $llevaAntorcha")
+
+                if (!llevaAntorcha) {
+                    Log.e("FraguasIsengard", "¡Peligro! Unidad enviada sin fuego")
+                }
+
+                Toast.makeText(this, "¡Unidad $idTropa enviada al Abismo de Helm!", Toast.LENGTH_LONG).show()
             }
-
-            val unidad = tipoUnidad.selectedItem.toString()
-
-            val equipo = when (equipamiento.checkedRadioButtonId) {
-                R.id.radioButtonArmadura -> "Armadura de hierro"
-                R.id.radioButtonEscudo -> "Escudo de Isengard"
-                else -> "Sin equipamiento"
-            }
-
-            val llevaAntorcha = antorcha.isChecked
-
-            Log.d("FraguasIsengard", "ID: $idTropa, unidad: $unidad, equipo: $equipo, antorcha: $llevaAntorcha")
-
-            if (!llevaAntorcha) {
-                Log.e("FraguasIsengard", "¡Peligro! Unidad enviada sin fuego")
-            }
-
-            Toast.makeText(this, "¡Unidad $idTropa enviada al Abismo de Helm!", Toast.LENGTH_LONG).show()
         }
     }
 
